@@ -1,0 +1,11 @@
+#this testcase is meant to show the effect of queue size of cores on the algorithm of MRM. 
+#t1 contains two memory instructions of different rows whereas t2 contains three memory instructions of same row. 
+#the first sw of t1 is executed followed by the three memory instructions of t2  
+#the second memory instruction of t1 is ececuted last as size of queue of a core is considered when same row instructions are not present in the current core.
+#t3 will be executed and all the instructions even though the instructions of different rows as it is a priority instruction.
+
+main:
+	sw $t0, 1000($zero)
+	lw $t1, 2000($zero)
+	add $t2, $zero, $t1
+exit:

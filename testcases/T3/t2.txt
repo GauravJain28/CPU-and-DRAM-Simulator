@@ -1,0 +1,21 @@
+#this testcase is meant to check all possible selections by the MRM of the code
+#in t1, we have a dependent addi instruction and thus the lw instruction on which this instruction has to be executed as a priority 
+#because there is an undergoing sw instruction of t2 in DRAM, a sw instruction of same row as the undergoing instruction is also queued
+#the code is designed in such a way that this queued instruction of same row will be executed first
+#the priority lw instruction will be present in the priority queue until we keep on getting normal instructions of same row.
+#even though the priority instruction from t2 comes later, but it is of same row and that's way it is executed first
+
+main:
+	addi $t0, $t0, 1
+	sw $t0, 2020($zero)
+	addi $s0, $s0, 2 
+	sw $s2, 2024($zero)
+loop:	
+	beq $t1, $s0, exit
+	addi $t1, $t1, 1
+	
+	j loop
+exit:
+	lw $t4, 2020($zero)
+	add $t3, $t1, $t4
+

@@ -1,0 +1,16 @@
+#this testcase is meant to check the overall implementation of the code
+#this file contains a loop which will run 99 times
+#in each iteration one sw instruction is present
+
+main:
+	addi $t0, $t0, 1
+	add $t1, $t1, $zero
+	addi $s0, $s0, 100
+loop:
+	beq $s0, $t0, exit
+	sw $t0, 1024($t1)
+	addi $t1, $t1, 4  
+	addi $t0, $t0, 1
+	j loop
+exit:
+

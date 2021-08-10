@@ -1,0 +1,19 @@
+#this testcase is meant to check the overall implementation of the code
+#this file contains a loop which will run 40 times
+#in each iteration one sw instruction and one lw instruction is present
+#sw-lw forwarding is present
+
+main:
+	addi $t0, $t0 ,200
+	addi $t1, $t1, 0
+	addi $t2, $zero, 1
+loop:
+	beq $t1, $t0, exit
+	sw $t1, 1000($t1)
+	lw $t5, 1000($t1)	
+	addi $t1, $t5, 4
+	j loop
+exit:
+	addi $s0, $t2, 1
+	sw $s0, 1000($t1)
+
