@@ -27,7 +27,7 @@ Number of instructions executed for each core and total instructions executed ar
 Some sample testcases are also present to try out the simulator.
 
 ## Author:
-* [Gaurav Jain](https://github.com/GAURAV-28)   -   2019CS10349
+* [Gaurav Jain](https://github.com/GauravJain28)   -   2019CS10349
 * [T Abishek](https://github.com/abishek2188)   -   2019CS10407
 
 ...
